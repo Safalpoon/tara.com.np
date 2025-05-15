@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Tara Gurung</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .project-image {
+            height: 200px;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted-color);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .project-description {
+            color: var(--muted-color);
+            margin-bottom: 15px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .project-tag {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .project-link i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .project-link:hover {
+            color: var(--primary-hover);
+        }
+        
+        .project-link:hover i {
+            transform: translateX(3px);
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* ===== Base Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ===== Page Header ===== */
+.page-header {
+  padding: 60px 20px 30px;
+  text-align: center;
+  background-color: var(--secondary-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.page-header .subtitle {
+  font-size: 1.1rem;
+  color: var(--muted-color);
+}
+
+/* ===== Projects Section ===== */
+.projects-section {
+  padding: 40px 20px;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ===== Project Card ===== */
+.project-card {
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+}
+
+/* ===== Project Image ===== */
+.project-image {
+  width: 100%;
+  height: 180px;
+  background-color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Project Content ===== */
+.project-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.project-title {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: var(--text-color);
+}
+
+/* ===== Project Tags ===== */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-tag {
+  background-color: var(--secondary-color);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 999px;
+  color: var(--accent-color);
+}
+
+/* ===== Project Link ===== */
+.project-link {
+  margin-top: auto;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.project-link:hover {
+  color: var(--primary-hover);
+}
+
+/* ===== Responsive Typography ===== */
+@media (max-width: 768px) {
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .page-header .subtitle {
+    font-size: 1rem;
+  }
+
+  .project-content {
+    padding: 16px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul class="nav-links" id="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="project.html" class="active">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-circle"></span>
+                </button>
+                <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="page-header">
+                <h1>My Projects</h1>
+                <p class="subtitle">A collection of my work in DevOps and software engineering</p>
+            </section>
+
+            <section class="projects-section">
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- <span>Project Image</span> -->
+                             <img src="intro.jpg" alt="project-1">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">CI/CD Pipeline Automation</h3>
+                            <p class="project-description">
+                                Implemented a robust CI/CD pipeline using Jenkins, Docker, and Kubernetes for seamless deployment.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Jenkins</span>
+                                <span class="project-tag">Docker</span>
+                                <span class="project-tag">Kubernetes</span>
+                            </div>
+                            <a href="project1.html" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="intro.jpg" alt="project-1">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Infrastructure as Code</h3>
+                            <p class="project-description">
+                                Developed infrastructure as code using Terraform and Ansible for cloud resource management.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Terraform</span>
+                                <span class="project-tag">Ansible</span>
+                                <span class="project-tag">AWS</span>
+                            </div>
+                            <a href="project1.html" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="intro.jpg" alt="project-1">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Microservices Architecture</h3>
+                            <p class="project-description">
+                                Designed and implemented a microservices architecture using Docker and Kubernetes.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Microservices</span>
+                                <span class="project-tag">Docker</span>
+                                <span class="project-tag">Kubernetes</span>
+                            </div>
+                            <a href="project1.html" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="intro.jpg" alt="project-1">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Cloud Migration Strategy</h3>
+                            <p class="project-description">
+                                Developed and executed a strategy for migrating on-premises applications to the cloud.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">AWS</span>
+                                <span class="project-tag">Migration</span>
+                                <span class="project-tag">Strategy</span>
+                            </div>
+                            <a href="project1.html" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="intro.jpg" alt="project-1">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Monitoring & Alerting System</h3>
+                            <p class="project-description">
+                                Set up comprehensive monitoring and alerting using Prometheus and Grafana.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Prometheus</span>
+                                <span class="project-tag">Grafana</span>
+                                <span class="project-tag">Monitoring</span>
+                            </div>
+                            <a href="project1.html" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="intro.jpg" alt="project-1">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Security Automation</h3>
+                            <p class="project-description">
+                                Implemented automated security scanning and compliance checks in the CI/CD pipeline.
+                            </p>
+                            <div class="project-tags">
+                                <span class="project-tag">Security</span>
+                                <span class="project-tag">Automation</span>
+                                <span class="project-tag">Compliance</span>
+                            </div>
+                            <a href="project1.html" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="social-links">
+                        <li><a href="https://linkedin.com"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://github.com"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="https://twitter.com"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <address>
+                        <p>Email: contact@tara.com.np</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tara Gurung. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

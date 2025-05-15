@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Best Practices for 2025 - Tara Gurung</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Blog Post Specific Styles */
+        .blog-post-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .blog-post-header {
+            margin-bottom: 30px;
+        }
+        
+        .blog-post-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            color: var(--muted-color);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .blog-post-meta span {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .blog-post-meta i {
+            margin-right: 5px;
+        }
+        
+        .blog-post-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .blog-post-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .blog-post-content p {
+            margin-bottom: 25px;
+        }
+        
+        .blog-post-content h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .blog-post-content h3 {
+            font-size: 1.4rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .blog-post-content ul, .blog-post-content ol {
+            margin-bottom: 25px;
+            padding-left: 25px;
+        }
+        
+        .blog-post-content li {
+            margin-bottom: 10px;
+        }
+        
+        .blog-post-content blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 25px;
+            font-style: italic;
+            color: var(--muted-color);
+        }
+        
+        .blog-post-content code {
+            background-color: var(--secondary-color);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        
+        .blog-post-content pre {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 25px;
+        }
+        
+        .blog-post-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .blog-post-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .blog-post-content a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Author Section */
+        .author-section {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        
+        .author-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 25px;
+            object-fit: cover;
+        }
+        
+        .author-info h3 {
+            margin-bottom: 10px;
+        }
+        
+        .author-info p {
+            color: var(--muted-color);
+            margin-bottom: 15px;
+        }
+        
+        .author-social a {
+            color: var(--muted-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .author-social a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Related Posts */
+        .related-posts {
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .related-posts h2 {
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .related-post-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        
+        .related-post-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .related-post-image {
+            height: 190px;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted-color);
+        }
+        .related-post-image img{
+            height: 200px;
+        }
+
+        .related-post-content {
+            padding: 20px;
+        }
+        
+        .related-post-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .related-post-title a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .related-post-title a:hover {
+            color: var(--primary-color);
+        }
+        
+        .related-post-date {
+            color: var(--muted-color);
+            font-size: 0.85rem;
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .comments-section h2 {
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        
+        .comment {
+            display: flex;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .comment:last-child {
+            border-bottom: none;
+        }
+        
+        .comment-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+        
+        .comment-content {
+            flex: 1;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .comment-date {
+            color: var(--muted-color);
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+        
+        .comment-text {
+            line-height: 1.6;
+        }
+        
+        .comment-reply {
+            margin-top: 10px;
+        }
+        
+        .comment-reply a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .comment-reply a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Comment Form */
+        .comment-form {
+            margin-top: 40px;
+        }
+        
+        .comment-form h3 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        /* Share Buttons */
+        .share-buttons {
+            display: flex;
+            align-items: center;
+            margin-top: 40px;
+        }
+        
+        .share-buttons span {
+            margin-right: 15px;
+            font-weight: 500;
+        }
+        
+        .share-buttons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+        
+        .share-buttons a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Table of Contents */
+        .table-of-contents {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .table-of-contents h3 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .table-of-contents ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .table-of-contents li {
+            margin-bottom: 10px;
+        }
+        
+        .table-of-contents a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .table-of-contents a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .blog-post-title {
+                font-size: 2rem;
+            }
+            
+            .author-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-image {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .related-posts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul class="nav-links" id="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="project.html">Projects</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-circle"></span>
+                </button>
+                <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            </nav>
+        </header>
+
+        <main>
+            <article class="blog-post-container">
+                <div class="blog-post-header">
+                    <h1 class="blog-post-title">DevOps Best Practices for 2025</h1>
+                    <div class="blog-post-meta">
+                        <span><i class="far fa-calendar"></i> March 15, 2025</span>
+                        <span><i class="far fa-clock"></i> 8 min read</span>
+                        <span><i class="far fa-folder"></i> DevOps</span>
+                        <span><i class="far fa-comment"></i> 5 Comments</span>
+                    </div>
+                </div>
+                
+                <img src="intro.jpg" alt="DevOps Best Practices" class="blog-post-image">
+                
+                <div class="table-of-contents">
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#infrastructure-as-code">Infrastructure as Code</a></li>
+                        <li><a href="#ci-cd-pipelines">CI/CD Pipelines</a></li>
+                        <li><a href="#monitoring-observability">Monitoring and Observability</a></li>
+                        <li><a href="#security">Security Integration</a></li>
+                        <li><a href="#conclusion">Conclusion</a></li>
+                    </ul>
+                </div>
+                
+                <div class="blog-post-content">
+                    <h2 id="introduction">Introduction</h2>
+                    <p>
+                        As we move further into 2025, DevOps practices continue to evolve at a rapid pace. Organizations that want to stay competitive must adapt to these changes and implement the most effective strategies for software development and deployment. In this article, I'll share the best DevOps practices that will help your team streamline development workflows, improve collaboration, and deliver software faster and more reliably.
+                    </p>
+                    
+                    <p>
+                        The landscape of DevOps has changed significantly over the past few years. With the rise of cloud-native technologies, containerization, and microservices architectures, the way we build, deploy, and manage applications has transformed. These changes have brought new challenges and opportunities for DevOps teams.
+                    </p>
+                    
+                    <h2 id="infrastructure-as-code">Infrastructure as Code</h2>
+                    <p>
+                        Infrastructure as Code (IaC) has become a fundamental practice in modern DevOps. By treating infrastructure configuration as code, teams can version control their infrastructure, automate deployments, and ensure consistency across environments. This approach eliminates manual configuration errors and makes infrastructure changes more predictable and repeatable.
+                    </p>
+                    
+                    <p>
+                        In 2025, the most effective IaC tools include:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Terraform</strong>: Still the leading tool for cloud-agnostic infrastructure provisioning</li>
+                        <li><strong>Pulumi</strong>: Gaining popularity for its support of familiar programming languages</li>
+                        <li><strong>AWS CDK</strong>: Preferred for AWS-centric organizations</li>
+                        <li><strong>Crossplane</strong>: Emerging as a Kubernetes-native approach to infrastructure management</li>
+                    </ul>
+                    
+                    <p>
+                        When implementing IaC, follow these best practices:
+                    </p>
+                    
+                    <ul>
+                        <li>Use modules to create reusable infrastructure components</li>
+                        <li>Implement a consistent naming convention</li>
+                        <li>Store state files securely and use state locking</li>
+                        <li>Validate infrastructure changes through automated testing</li>
+                        <li>Use drift detection to identify unauthorized changes</li>
+                    </ul>
+                    
+                    <h2 id="ci-cd-pipelines">CI/CD Pipelines</h2>
+                    <p>
+                        Continuous Integration and Continuous Delivery (CI/CD) pipelines are the backbone of DevOps. They automate the process of building, testing, and deploying applications, enabling teams to deliver changes quickly and reliably. In 2025, CI/CD pipelines have become more sophisticated, incorporating security scanning, compliance checks, and performance testing.
+                    </p>
+                    
+                    <p>
+                        Here's what a modern CI/CD pipeline should include:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Code Quality Checks</strong>: Static code analysis, linting, and code style enforcement</li>
+                        <li><strong>Automated Testing</strong>: Unit tests, integration tests, and end-to-end tests</li>
+                        <li><strong>Security Scanning</strong>: Vulnerability scanning, dependency checking, and SAST/DAST</li>
+                        <li><strong>Compliance Validation</strong>: Policy checks and regulatory compliance verification</li>
+                        <li><strong>Performance Testing</strong>: Load testing and performance benchmarking</li>
+                        <li><strong>Deployment Automation</strong>: Automated deployment to staging and production environments</li>
+                    </ul>
+                    
+                    <p>
+                        Popular CI/CD tools in 2025 include:
+                    </p>
+                    
+                    <ul>
+                        <li>GitHub Actions: Tightly integrated with GitHub repositories</li>
+                        <li>GitLab CI: Comprehensive DevOps platform with built-in CI/CD</li>
+                        <li>Jenkins: Still widely used for its flexibility and extensive plugin ecosystem</li>
+                        <li>ArgoCD: Leading tool for GitOps-based deployments to Kubernetes</li>
+                    </ul>
+                    
+                    <h2 id="monitoring-observability">Monitoring and Observability</h2>
+                    <p>
+                        In 2025, monitoring has evolved into observability, which encompasses metrics, logs, and traces to provide a comprehensive view of system behavior. Observability is essential for understanding complex distributed systems and quickly identifying and resolving issues.
+                    </p>
+                    
+                    <p>
+                        Key components of a modern observability stack include:
+                    </p>
+                    
+                    <ul>
+                        <li><strong>Metrics</strong>: Quantitative measurements of system performance and behavior</li>
+                        <li><strong>Logs</strong>: Detailed records of events and activities within the system</li>
+                        <li><strong>Traces</strong>: End-to-end tracking of requests as they flow through distributed systems</li>
+                        <li><strong>Alerts</strong>: Notifications when predefined thresholds are breached</li>
+                        <li><strong>Dashboards</strong>: Visual representations of system health and performance</li>
+                    </ul>
+                    
+                    <p>
+                        Leading observability tools in 2025 include:
+                    </p>
+                    
+                    <ul>
+                        <li>Prometheus and Grafana: De facto standard for metrics collection and visualization</li>
+                        <li>OpenTelemetry: Unified standard for collecting and exporting telemetry data</li>
+                        <li>Jaeger and Zipkin: Distributed tracing systems for microservices architectures</li>
+                        <li>Elastic Stack: Comprehensive platform for logs, metrics, and APM</li>
+                    </ul>
+                    
+                    <h2 id="security">Security Integration</h2>
+                    <p>
+                        DevSecOps has become a critical aspect of DevOps in 2025. Security is no longer an afterthought but is integrated throughout the development lifecycle. This shift-left approach to security helps identify and address vulnerabilities early, reducing the cost and impact of security issues.
+                    </p>
+                    
+                    <p>
+                        Best practices for DevSecOps include:
+                    </p>
+                    
+                    <ul>
+                        <li>Implement security scanning in CI/CD pipelines</li>
+                        <li>Use Infrastructure as Code security scanning</li>
+                        <li>Adopt a zero-trust security model</li>
+                        <li>Implement least privilege access controls</li>
+                        <li>Conduct regular security training for development teams</li>
+                        <li>Use automated compliance checking</li>
+                    </ul>
+                    
+                    <h2 id="conclusion">Conclusion</h2>
+                    <p>
+                        DevOps continues to evolve in 2025, with a focus on automation, security, and observability. By implementing these best practices, organizations can improve their software delivery process, reduce time to market, and enhance the reliability and security of their applications.
+                    </p>
+                    
+                    <p>
+                        Remember that DevOps is not just about tools but also about culture and processes. Fostering a culture of collaboration, continuous improvement, and shared responsibility is essential for successful DevOps implementation. Start small, measure your progress, and continuously refine your approach based on feedback and results.
+                    </p>
+                    
+                    <div class="share-buttons">
+                        <span>Share:</span>
+                        <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Share via Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="author-section">
+                    <img src="intro.jpg" alt="Tara Gurung" class="author-image">
+                    <div class="author-info">
+                        <h3>Tara Gurung</h3>
+                        <p>DevOps Engineer with over 8 years of experience in automating and optimizing software development processes. Passionate about sharing knowledge and helping teams implement effective DevOps practices.</p>
+                        <div class="author-social">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="related-posts">
+                    <h2>Related Posts</h2>
+                    <div class="related-posts-grid">
+                        <div class="related-post-card">
+                            <div class="related-post-image">
+                                <img src="intro.jpg" alt="">
+                            </div>
+                            <div class="related-post-content">
+                                <h3 class="related-post-title">
+                                    <a href="#">10 Kubernetes Tips Every DevOps Engineer Should Know</a>
+                                </h3>
+                                <div class="related-post-date">February 28, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="related-post-card">
+                            <div class="related-post-image">
+                                <img src="intro.jpg" alt="blog">
+                            </div>
+                            <div class="related-post-content">
+                                <h3 class="related-post-title">
+                                    <a href="#">Infrastructure as Code: A Comprehensive Guide</a>
+                                </h3>
+                                <div class="related-post-date">January 15, 2025</div>
+                            </div>
+                        </div>
+                        
+                        <div class="related-post-card">
+                            <div class="related-post-image">
+                                <img src="intro.jpg" alt="blog">
+                            </div>
+                            <div class="related-post-content">
+                                <h3 class="related-post-title">
+                                    <a href="#">The Future of Cloud Native Applications</a>
+                                </h3>
+                                <div class="related-post-date">December 10, 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comments-section">
+                    <h2>Comments (5)</h2>
+                    
+                    <div class="comment">
+                        <img src="https://placehold.co/100x100" alt="John Doe" class="comment-avatar">
+                        <div class="comment-content">
+                            <div class="comment-author">John Doe</div>
+                            <div class="comment-date">March 16, 2025 at 10:30 AM</div>
+                            <div class="comment-text">
+                                <p>Great article! I especially liked the section on Infrastructure as Code. We've been using Terraform for a while now, but I'm interested in exploring Pulumi as well. Do you have any tips for migrating from Terraform to Pulumi?</p>
+                            </div>
+                            <div class="comment-reply">
+                                <a href="#">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <img src="https://placehold.co/100x100" alt="Jane Smith" class="comment-avatar">
+                        <div class="comment-content">
+                            <div class="comment-author">Jane Smith</div>
+                            <div class="comment-date">March 16, 2025 at 2:45 PM</div>
+                            <div class="comment-text">
+                                <p>I've been implementing many of these practices in my organization, and they've made a huge difference in our deployment frequency and reliability. One thing I'd add is the importance of documentation automation - keeping documentation up-to-date is still a challenge for many teams.</p>
+                            </div>
+                            <div class="comment-reply">
+                                <a href="#">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <img src="https://placehold.co/100x100" alt="Tara Gurung" class="comment-avatar">
+                        <div class="comment-content">
+                            <div class="comment-author">Tara Gurung</div>
+                            <div class="comment-date">March 17, 2025 at 9:15 AM</div>
+                            <div class="comment-text">
+                                <p>@John Doe - Great question about migrating from Terraform to Pulumi! I'd recommend a gradual approach: start by converting non-critical infrastructure components first, use Pulumi's Terraform bridge to import existing state, and maintain both systems in parallel during the transition. I'll write a detailed blog post about this soon!</p>
+                                <p>@Jane Smith - Excellent point about documentation automation! You're absolutely right that keeping docs updated is a common challenge. Tools like Backstage and automated API documentation can help a lot here.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <img src="https://placehold.co/100x100" alt="Mike Johnson" class="comment-avatar">
+                        <div class="comment-content">
+                            <div class="comment-author">Mike Johnson</div>
+                            <div class="comment-date">March 18, 2025 at 11:20 AM</div>
+                            <div class="comment-text">
+                                <p>What are your thoughts on GitOps as a deployment strategy? We've been using ArgoCD for our Kubernetes deployments and it's been working well, but I'm curious about how it fits into the broader DevOps landscape in 2025.</p>
+                            </div>
+                            <div class="comment-reply">
+                                <a href="#">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment">
+                        <img src="https://placehold.co/100x100" alt="Sarah Lee" class="comment-avatar">
+                        <div class="comment-content">
+                            <div class="comment-author">Sarah Lee</div>
+                            <div class="comment-date">March 19, 2025 at 3:05 PM</div>
+                            <div class="comment-text">
+                                <p>I'd love to see a follow-up article on how to implement these practices in smaller organizations with limited resources. Not everyone has the luxury of dedicated DevOps teams, but these practices are still important for teams of all sizes.</p>
+                            </div>
+                            <div class="comment-reply">
+                                <a href="#">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comment-form">
+                        <h3>Leave a Comment</h3>
+                        <form id="commentForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="comment">Comment</label>
+                                <textarea id="comment" class="form-control" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Post Comment</button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="social-links">
+                        <li><a href="https://linkedin.com"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://github.com"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="https://twitter.com"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <address>
+                        <p>Email: contact@tara.com.np</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tara Gurung. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Comment form submission
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const comment = document.getElementById('comment').value;
+            
+            // Here you would typically send the form data to a server
+            // For demonstration, we'll just log it and show an alert
+            console.log({name, email, comment});
+            
+            // Create a new comment element
+            const newComment = document.createElement('div');
+            newComment.className = 'comment';
+            newComment.innerHTML = `
+                <img src="https://placehold.co/100x100" alt="${name}" class="comment-avatar">
+                <div class="comment-content">
+                    <div class="comment-author">${name}</div>
+                    <div class="comment-date">Just now</div>
+                    <div class="comment-text">
+                        <p>${comment}</p>
+                    </div>
+                    <div class="comment-reply">
+                        <a href="#">Reply</a>
+                    </div>
+                </div>
+            `;
+            
+            // Add the new comment to the comments section
+            document.querySelector('.comment-form').before(newComment);
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Your comment has been posted!');
+        });
+        
+        // Table of contents smooth scrolling
+        document.querySelectorAll('.table-of-contents a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

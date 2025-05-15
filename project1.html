@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Migration Project - Tara Gurung</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Project Detail Specific Styles */
+        .project-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .project-header {
+            margin-bottom: 40px;
+        }
+        
+        .project-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+        
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .project-meta-item {
+            display: flex;
+            align-items: center;
+            color: var(--muted-color);
+        }
+        
+        .project-meta-item i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+        
+        .project-meta-item strong {
+            margin-right: 5px;
+            color: var(--text-color);
+        }
+        
+        .project-hero {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .project-hero img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .project-overview {
+            margin-bottom: 50px;
+        }
+        
+        .project-overview h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .project-overview p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .project-section {
+            margin-bottom: 50px;
+        }
+        
+        .project-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .project-section p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .project-section ul {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+        
+        .project-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .tech-badge {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tech-badge i {
+            margin-right: 8px;
+        }
+        
+        .project-gallery {
+            margin-bottom: 50px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .project-challenges {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 50px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .challenge-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .challenge-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .challenge-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .challenge-item h3 i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .project-results {
+            margin-bottom: 50px;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .result-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        
+        .result-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .result-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .result-card p {
+            color: var(--muted-color);
+            font-size: 0.95rem;
+        }
+        
+        .testimonial {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 50px;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+        
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        
+        .testimonial-author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-author-info p {
+            color: var(--muted-color);
+            font-size: 0.9rem;
+        }
+        
+        .project-cta {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .project-cta h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .project-cta p {
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .cta-btn i {
+            margin-right: 8px;
+        }
+        
+        .cta-btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .cta-btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .cta-btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+        
+        .cta-btn-secondary:hover {
+            background-color: var(--border-color);
+        }
+        
+        .related-projects {
+            margin-bottom: 50px;
+        }
+        
+        .related-projects h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .related-projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .related-project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .related-project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .related-project-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .related-project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .related-project-card:hover .related-project-image img {
+            transform: scale(1.05);
+        }
+        
+        .related-project-content {
+            padding: 20px;
+        }
+        
+        .related-project-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .related-project-title a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .related-project-title a:hover {
+            color: var(--primary-color);
+        }
+        
+        .related-project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .related-project-tag {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .project-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .nav-previous, .nav-next {
+            max-width: 45%;
+        }
+        
+        .nav-previous a, .nav-next a {
+            display: flex;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .nav-previous a:hover, .nav-next a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-previous i, .nav-next i {
+            font-size: 1.5rem;
+        }
+        
+        .nav-previous i {
+            margin-right: 10px;
+        }
+        
+        .nav-next i {
+            margin-left: 10px;
+        }
+        
+        .nav-title {
+            font-weight: 500;
+        }
+        
+        .nav-project {
+            color: var(--muted-color);
+            font-size: 0.9rem;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            display: block;
+            border-radius: 4px;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 1001;
+        }
+        
+        .lightbox-prev, .lightbox-next {
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .results-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .related-projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-navigation {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-previous, .nav-next {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <ul class="nav-links" id="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="project.html" class="active">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+                <button id="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="toggle-circle"></span>
+                </button>
+                <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="project-container">
+                <div class="project-header">
+                    <h1 class="project-title">Enterprise Cloud Migration & DevOps Transformation</h1>
+                    <div class="project-meta">
+                        <div class="project-meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <strong>Duration:</strong> 8 months
+                        </div>
+                        <div class="project-meta-item">
+                            <i class="fas fa-building"></i>
+                            <strong>Client:</strong> Financial Services Enterprise
+                        </div>
+                        <div class="project-meta-item">
+                            <i class="fas fa-user"></i>
+                            <strong>Role:</strong> Lead DevOps Engineer
+                        </div>
+                        <div class="project-meta-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <strong>Completed:</strong> January 2025
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-hero">
+                    <img src="intro.jpg" alt="Cloud Migration Project">
+                </div>
+                
+                <div class="project-overview">
+                    <h2>Project Overview</h2>
+                    <p>
+                        Led a comprehensive cloud migration and DevOps transformation for a major financial services enterprise. The project involved migrating over 200 applications from on-premises data centers to AWS cloud infrastructure while implementing modern DevOps practices to improve deployment frequency, reliability, and security.
+                    </p>
+                    <p>
+                        The client was facing challenges with aging infrastructure, slow time-to-market for new features, and increasing operational costs. The migration to the cloud and adoption of DevOps practices helped them achieve greater agility, reduced operational costs, and improved security posture.
+                    </p>
+                </div>
+                
+                <div class="project-section">
+                    <h2>Technologies Used</h2>
+                    <div class="tech-stack">
+                        <span class="tech-badge"><i class="fab fa-aws"></i> AWS</span>
+                        <span class="tech-badge"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="tech-badge"><i class="fas fa-dharmachakra"></i> Kubernetes</span>
+                        <span class="tech-badge"><i class="fab fa-jenkins"></i> Jenkins</span>
+                        <span class="tech-badge"><i class="fas fa-code-branch"></i> GitLab CI/CD</span>
+                        <span class="tech-badge"><i class="fas fa-terminal"></i> Terraform</span>
+                        <span class="tech-badge"><i class="fas fa-shield-alt"></i> AWS Security Hub</span>
+                        <span class="tech-badge"><i class="fas fa-chart-line"></i> Prometheus</span>
+                        <span class="tech-badge"><i class="fas fa-tachometer-alt"></i> Grafana</span>
+                        <span class="tech-badge"><i class="fas fa-search"></i> ELK Stack</span>
+                        <span class="tech-badge"><i class="fas fa-network-wired"></i> AWS Transit Gateway</span>
+                        <span class="tech-badge"><i class="fas fa-lock"></i> HashiCorp Vault</span>
+                    </div>
+                </div>
+                
+                <div class="project-section">
+                    <h2>My Role & Responsibilities</h2>
+                    <ul>
+                        <li>Led a team of 8 DevOps engineers throughout the migration and transformation process</li>
+                        <li>Designed the AWS landing zone architecture with multiple accounts for different environments</li>
+                        <li>Implemented Infrastructure as Code using Terraform for all cloud resources</li>
+                        <li>Established CI/CD pipelines using Jenkins and GitLab CI for automated testing and deployment</li>
+                        <li>Designed and implemented a containerization strategy using Docker and Kubernetes</li>
+                        <li>Set up comprehensive monitoring and observability using Prometheus, Grafana, and ELK Stack</li>
+                        <li>Implemented security best practices and compliance controls</li>
+                        <li>Conducted knowledge transfer sessions and training for the client's engineering teams</li>
+                    </ul>
+                </div>
+                
+                <div class="project-gallery">
+                    <h2>Project Gallery</h2>
+                    <div class="gallery-grid">
+                        <div class="gallery-item" data-index="0">
+                            <img src="intro.jpg" alt="AWS Architecture Diagram">
+                        </div>
+                        <div class="gallery-item" data-index="1">
+                            <img src="intro.jpg" alt="CI/CD Pipeline">
+                        </div>
+                        <div class="gallery-item" data-index="2">
+                            <img src="intro.jpg" alt="Kubernetes Cluster">
+                        </div>
+                        <div class="gallery-item" data-index="3">
+                            <img src="intro.jpg" alt="Monitoring Dashboard">
+                        </div>
+                        <div class="gallery-item" data-index="4">
+                            <img src="intro.jpg" alt="Security Controls">
+                        </div>
+                        <div class="gallery-item" data-index="5">
+                            <img src="intro.jpg" alt="Team Collaboration">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-challenges">
+                    <h2>Challenges & Solutions</h2>
+                    
+                    <div class="challenge-item">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Legacy Application Compatibility</h3>
+                        <p>
+                            Many of the client's applications were built on legacy technologies that were not cloud-native and required significant modifications to run in the cloud.
+                        </p>
+                        <p>
+                            <strong>Solution:</strong> Implemented a phased migration approach, starting with the most cloud-ready applications. For legacy applications, we used a combination of containerization and AWS-specific services like AWS App2Container to modernize without complete rewrites. We also established a dedicated "modernization team" to handle the most complex applications.
+                        </p>
+                    </div>
+                    
+                    <div class="challenge-item">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Strict Regulatory Compliance</h3>
+                        <p>
+                            As a financial services organization, the client was subject to strict regulatory requirements regarding data security, privacy, and compliance.
+                        </p>
+                        <p>
+                            <strong>Solution:</strong> Implemented a comprehensive security and compliance framework using AWS Security Hub, Config, and GuardDuty. We also established automated compliance checks in the CI/CD pipeline and regular security scanning. All infrastructure was defined as code with compliance controls built in, and we maintained detailed audit logs for all changes.
+                        </p>
+                    </div>
+                    
+                    <div class="challenge-item">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Organizational Resistance</h3>
+                        <p>
+                            There was significant resistance from some teams who were comfortable with the existing processes and concerned about the learning curve associated with new tools and practices.
+                        </p>
+                        <p>
+                            <strong>Solution:</strong> Implemented a comprehensive change management strategy that included regular training sessions, hands-on workshops, and creating a "DevOps Champions" program within each team. We also established a gradual transition plan that allowed teams to adapt at a manageable pace while demonstrating early wins to build confidence.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="project-results">
+                    <h2>Results & Impact</h2>
+                    
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <h3>75%</h3>
+                            <p>Reduction in deployment time</p>
+                        </div>
+                        <div class="result-card">
+                            <i class="fas fa-dollar-sign"></i>
+                            <h3>40%</h3>
+                            <p>Reduction in infrastructure costs</p>
+                        </div>
+                        <div class="result-card">
+                            <i class="fas fa-bug"></i>
+                            <h3>65%</h3>
+                            <p>Fewer production incidents</p>
+                        </div>
+                        <div class="result-card">
+                            <i class="fas fa-rocket"></i>
+                            <h3>10x</h3>
+                            <p>Increase in deployment frequency</p>
+                        </div>
+                    </div>
+                    
+                    <p>
+                        The cloud migration and DevOps transformation delivered significant business value to the client. Beyond the metrics above, the project enabled:
+                    </p>
+                    
+                    <ul>
+                        <li>Faster time-to-market for new features and services</li>
+                        <li>Improved scalability to handle peak loads without performance degradation</li>
+                        <li>Enhanced security posture with automated compliance checks and security scanning</li>
+                        <li>Better visibility into application performance and user experience</li>
+                        <li>Increased developer productivity and satisfaction</li>
+                        <li>Improved disaster recovery capabilities with multi-region deployments</li>
+                    </ul>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-quote">
+                        Tara's leadership throughout our cloud migration was exceptional. Her technical expertise, combined with her ability to navigate complex organizational challenges, was instrumental in the success of this transformation. The DevOps practices she implemented have fundamentally changed how we deliver software, enabling us to respond to market changes faster than ever before.
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="https://placehold.co/100x100" alt="John Smith">
+                        <div class="testimonial-author-info">
+                            <h4>John Smith</h4>
+                            <p>CTO, Financial Services Enterprise</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-cta">
+                    <h2>Interested in a similar solution?</h2>
+                    <p>
+                        I specialize in cloud migrations and DevOps transformations for enterprises. Whether you're looking to move to the cloud, optimize your existing cloud infrastructure, or implement DevOps practices, I can help you achieve your goals.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="cta-btn cta-btn-primary">
+                            <i class="fas fa-envelope"></i> Contact Me
+                        </a>
+                        <a href="projects.html" class="cta-btn cta-btn-secondary">
+                            <i class="fas fa-project-diagram"></i> View More Projects
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="related-projects">
+                    <h2>Related Projects</h2>
+                    <div class="related-projects-grid">
+                        <div class="related-project-card">
+                            <div class="related-project-image">
+                                <img src="intro.jpg" alt="Kubernetes Implementation">
+                            </div>
+                            <div class="related-project-content">
+                                <h3 class="related-project-title">
+                                    <a href="#">Kubernetes Implementation for E-commerce Platform</a>
+                                </h3>
+                                <p>
+                                    Implemented a Kubernetes-based container orchestration platform for a high-traffic e-commerce company.
+                                </p>
+                                <div class="related-project-tags">
+                                    <span class="related-project-tag">Kubernetes</span>
+                                    <span class="related-project-tag">Docker</span>
+                                    <span class="related-project-tag">Helm</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="related-project-card">
+                            <div class="related-project-image">
+                                <img src="intro.jpg" alt="CI/CD Pipeline">
+                            </div>
+                            <div class="related-project-content">
+                                <h3 class="related-project-title">
+                                    <a href="#">CI/CD Pipeline Modernization</a>
+                                </h3>
+                                <p>
+                                    Redesigned and implemented modern CI/CD pipelines for a healthcare software provider.
+                                </p>
+                                <div class="related-project-tags">
+                                    <span class="related-project-tag">Jenkins</span>
+                                    <span class="related-project-tag">GitLab CI</span>
+                                    <span class="related-project-tag">ArgoCD</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="related-project-card">
+                            <div class="related-project-image">
+                                <img src="intro.jpg" alt="Security Automation">
+                            </div>
+                            <div class="related-project-content">
+                                <h3 class="related-project-title">
+                                    <a href="#">Security Automation & Compliance</a>
+                                </h3>
+                                <p>
+                                    Implemented automated security scanning and compliance monitoring for a fintech startup.
+                                </p>
+                                <div class="related-project-tags">
+                                    <span class="related-project-tag">AWS Security</span>
+                                    <span class="related-project-tag">Compliance</span>
+                                    <span class="related-project-tag">Automation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-navigation">
+                    <div class="nav-previous">
+                        <a href="#">
+                            <i class="fas fa-arrow-left"></i>
+                            <div>
+                                <div class="nav-project">Previous Project</div>
+                                <div class="nav-title">Microservices Architecture Implementation</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="nav-next">
+                        <a href="#">
+                            <div>
+                                <div class="nav-project">Next Project</div>
+                                <div class="nav-title">Serverless Application Platform</div>
+                            </div>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Lightbox for Gallery Images -->
+        <div class="lightbox" id="gallery-lightbox">
+            <div class="lightbox-close" id="lightbox-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="lightbox-content" id="lightbox-content">
+                <img src="/placeholder.svg" alt="Gallery Image">
+            </div>
+            <div class="lightbox-nav">
+                <div class="lightbox-prev" id="lightbox-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="lightbox-next" id="lightbox-next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <ul class="social-links">
+                        <li><a href="https://linkedin.com"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://github.com"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="https://twitter.com"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <address>
+                        <p>Email: contact@tara.com.np</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tara Gurung. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Gallery Lightbox Functionality
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('gallery-lightbox');
+        const lightboxContent = document.getElementById('lightbox-content');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        
+        let currentIndex = 0;
+        const galleryImages = [
+            'https://placehold.co/600x400',
+            'https://placehold.co/600x400',
+            'https://placehold.co/600x400',
+            'https://placehold.co/600x400',
+            'https://placehold.co/600x400',
+            'https://placehold.co/600x400'
+        ];
+        
+        // Open lightbox
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                updateLightboxImage();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Close lightbox
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Navigate to previous image
+        lightboxPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateLightboxImage();
+        });
+        
+        // Navigate to next image
+        lightboxNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            updateLightboxImage();
+        });
+        
+        // Update lightbox image
+        function updateLightboxImage() {
+            const img = lightboxContent.querySelector('img');
+            img.src = galleryImages[currentIndex];
+            img.alt = `Gallery Image ${currentIndex + 1}`;
+        }
+        
+        // Close lightbox when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            } else if (e.key === 'ArrowLeft') {
+                currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+                updateLightboxImage();
+            } else if (e.key === 'ArrowRight') {
+                currentIndex = (currentIndex + 1) % galleryImages.length;
+                updateLightboxImage();
+            }
+        });
+    </script>
+</body>
+</html>
